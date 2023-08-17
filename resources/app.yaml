@@ -1,0 +1,26 @@
+# deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prom-x-go
+spec:
+  selector:
+    matchLabels:
+      app: prom-x-go
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: prom-x-go
+      annotations:
+        prometheus.io/scrape: 'true'
+    spec:
+      containers:
+        - name: prom-x-go
+         # image: prometheus_example_go:latest
+          image: quay.io/brybacki/prometheus_example_go:latest 
+          imagePullPolicy: Always
+          command:
+            - "/bin/main"
+          ports:
+            - containerPort: 8080

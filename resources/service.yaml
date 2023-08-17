@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prom-x-svc
+spec:
+  selector:
+    app: prom-x-go
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
