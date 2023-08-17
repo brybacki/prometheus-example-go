@@ -19,3 +19,12 @@ GO111MODULE=on CGO_ENABLED=0 GOOS=linux go build -o=./bin/main .
 
 ./bin/main
 ```
+
+# Docker build
+```bash
+DOCKER_REPOSITORY=quay.io/brybacki/
+
+docker tag prometheus_example_go:latest quay.io/brybacki/prometheus_example_go:latest
+docker push quay.io/brybacki/prometheus_example_go:latest
+
+```
